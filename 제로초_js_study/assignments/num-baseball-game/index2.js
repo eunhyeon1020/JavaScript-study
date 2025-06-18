@@ -42,7 +42,7 @@ function numInputBtn() {
 }
 
 
-// 판정 로직직
+// 판정 로직
 const checkResult = function() {
   let strike = 0 
   let ball = 0 
@@ -62,3 +62,28 @@ function resultBtn () {
   const result = checkResult()
   alert(`판정 -- ${result.strike} 스트라이크 , ${result.ball} 볼`)
 }
+
+// 반복 출력 
+function tenPlay() {
+  randomNumResult = random(3, 9, 1)
+  console.log("정답(디버깅용):", randomNumResult)
+
+  const tenTry = 10 
+
+  for (let i = 0; i < tenTry; i ++ ){
+  inputNumResult = input()
+  console.log(`입력(${i}회차):`, inputNumResult)
+
+  const result = checkResult()
+    alert(`[${i}회차] 결과 → ${result.strike} 스트라이크, ${result.ball} 볼`)
+
+    // 성공 조건
+    if (result.strike === 3) {
+      alert("🎉 정답입니다! 축하합니다!")
+      return
+    }
+  }
+
+  // 실패 시
+  alert("❌ 다음 기회에...")
+  }
