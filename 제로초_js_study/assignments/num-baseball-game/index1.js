@@ -64,26 +64,29 @@ function resultBtn () {
 }
 
 // 반복 출력 
-function tenPlay() {
+function tenPlayBtn() {
+  // 무작위 숫자 생성
   randomNumResult = random(3, 9, 1)
   console.log("정답(디버깅용):", randomNumResult)
+  document.writeln("무작위 숫자 : " + randomNumResult + '<br>');
 
-  const tenTry = 10 
+  // 사용자 입력 숫자 10번 반복 
+  const tenTry = 10
 
   for (let i = 0; i < tenTry; i ++ ){
   inputNumResult = input()
-  console.log(`입력(${i}회차):`, inputNumResult)
+  console.log(`입력(${i+1}회차):`, inputNumResult)
+  document.writeln('<br>' +`${i+1}차 입력 : `+inputNumResult);
 
   const result = checkResult()
-    alert(`[${i}회차] 결과 → ${result.strike} 스트라이크, ${result.ball} 볼`)
+    alert(`[${i+1}회차] 결과 → ${result.strike} 스트라이크, ${result.ball} 볼`)
 
     // 성공 조건
     if (result.strike === 3) {
       alert("🎉 정답입니다! 축하합니다!")
-      return
-    }
+    } 
   }
-
-  // 실패 시
   alert("❌ 다음 기회에...")
-  }
+
+  
+}
