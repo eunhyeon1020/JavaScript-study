@@ -6,7 +6,9 @@ const random = function(count, max, min) {
   const randNumbers = []
 
   while(randNumbers.length < count) {
+    // 랜범 숫자 뽑기 
     const rand = Math.floor(Math.random() * (max - min + 1)) + min
+    // 중복체크
     if (!randNumbers.includes(rand)){
       randNumbers.push(rand)
     } 
@@ -68,10 +70,11 @@ function tenPlayBtn() {
   // 무작위 숫자 생성
   randomNumResult = random(3, 9, 1)
   console.log("정답(디버깅용):", randomNumResult)
+  // [한번에 고칠 예정]
   document.writeln("무작위 숫자 : " + randomNumResult + '<br>');
 
   // 사용자 입력 숫자 10번 반복 
-  const tenTry = 10
+  const tenTry =5
 
   for (let i = 0; i < tenTry; i ++ ){
   inputNumResult = input()
