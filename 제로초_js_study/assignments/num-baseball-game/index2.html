@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .userNm > span,
+    .createNum > span { 
+      padding-right: 2rem;
+    }
+
+    .inputNum > span {
+      padding-right: 1rem;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div>숫자 야구 게임 - 4단계</div><br>
+  <div>숫자 야구 게임</div>
+  
+  <!-- 입력란 -->
+  <div class="input_item">
+    <!-- 유저 이름 -->
+    <div class="userNm">
+      <span>유저 이름</span>
+      <input id="inputUserNm" type="text">
+      <button id="gameStartBtn" onclick="gameStart()" disabled>게임 시작</button>
+    </div>
+    <!-- 생성 숫자 -->
+    <div class="createNum">
+      <span>생성 숫자</span>
+      <input id="inputCreateNum" type="text" readonly>
+    </div>
+    <!-- 입력한 숫자 -->
+    <div class="inputNum">
+      <span>입력한 숫자</span>
+      <input id="inputNum" type="text">
+    </div>  
+  </div>
+  
+  <!-- 게임 결과 -->
+  <div>
+    <span>게임 결과</span>
+    <div></div>
+  </div>
+  
+  <!-- 실시간 정보 -->
+  <div>
+    <textarea id="liveInfo" cols="50" rows="20"></textarea>
+  </div>
+  
+  <!-- 모든 결과 최종 출력  -->
+  <div></div>
+  
+  
+  
+  <script src="index2.js"></script>
+</body>
+</html>
