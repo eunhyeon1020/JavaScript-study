@@ -35,19 +35,6 @@ const input_1 = function() {
   return inputNumbers;
 }
 
-// 사용자 입력 숫자 로직 (input)
-const input_2 = function(inputNum) {
-  const inpustNumbers = inputNum
-    .split(',') // 쉼표 기준으로 나눠서 배열 만들기
-    .map(str => str.trim()) // 앞뒤 공백 제거
-    // 빈문자열, 숫자가 아닌 값 제외, 0~9 사이 숫자만 허용
-    .filter(str => str !== !isNaN(str) && str >= 0 && str <= 9)
-    .map(Number) // 문자열을 숫자로 변환 
-    .slice(0, 3); // 앞에서부터 최대 3개만 자름
-
-  return inpustNumbers;
-}
-
 
 // 판정 로직
 const checkResult = function() {
@@ -109,46 +96,3 @@ function tenPlayBtn() {
   }
   alert("❌ 다음 기회에...")
 }
-
-// ***********************************************************************
-// 사용자 이름 input
-const inputUserNm = document.getElementById('inputUserNm');
-// 게임 시작 버튼 
-const gameStartBtn = document.getElementById('gameStartBtn');
-// 입력 숫자 input
-const inputNum = document.getElementById('inputNum');
-// 게임 결과 textarea
-const liveInfo = document.getElementById('liveInfo');
-
-// 이름 입력 시에만, 게임 스타트 버튼활성화 
-inputUserNm.addEventListener('input', function() {
-  if(inputUserNm.value.trim() !== ''){
-    gameStartBtn.disabled = false; 
-  } else {
-    gameStartBtn.disabled = true;
-  }
-})
-
-// 게임 스타트 버튼을 눌렀을 때, 무작위 숫자 생성 및 사용자 반복문 시작
-function gameStart() {
-  const randomNumber = random(3, 9, 1)
-  document.getElementById('inputCreateNum').value = randomNumber;
-
-  inputNum.addEventListener('keydown', function(e) { 
-  if(e.key === 'Enter'){
-    e.preventDefault();
-
-    const userInput = input_2(inputNum.value);
-    console.log(userInput)
-
-    if (userInput.length !== 3) {
-    alert('숫자 3개를 정확히 입력하세요 (0~9)');
-    return;
-    } 
-    liveInfo.value = userInput;
-    
-
-  
-}})
-}
-

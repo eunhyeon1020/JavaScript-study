@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
   <style>
     .userNm > span,
     .createNum > span { 
@@ -13,9 +14,13 @@
     .inputNum > span {
       padding-right: 1rem;
     }
+
+    #finalResult {
+      padding-left: 2rem;
+    }
   </style>
-  <title>Document</title>
 </head>
+
 <body>
   <div>숫자 야구 게임 - 4단계</div><br>
   <div>숫자 야구 게임</div>
@@ -43,18 +48,13 @@
   <!-- 게임 결과 -->
   <div>
     <span>게임 결과</span>
-    <div></div>
+    <span id="finalResult"></span>
   </div>
   
   <!-- 실시간 정보 -->
   <div>
-    <textarea id="liveInfo" cols="50" rows="20"></textarea>
-  </div>
-  
-  <!-- 모든 결과 최종 출력  -->
-  <div></div>
-  
-  
+    <textarea id="liveInfo" cols="60" rows="20"></textarea>
+  </div>  
   
   <script src="index2.js"></script>
 </body>
