@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <title>Document</title>
+  <title>숫자 야구 게임</title>
   <style>
     .userNm > span,
     .createNum > span { 
@@ -12,7 +12,15 @@
     }
 
     .inputNum > span {
-      padding-right: 1rem;
+      padding-right: 2rem;
+    }
+
+    .inputNum > input {
+      width: 20px;
+    }
+
+    .round > span {
+      padding-right: 4rem;
     }
 
     #finalResult {
@@ -38,10 +46,18 @@
       <span>생성 숫자</span>
       <input id="inputCreateNum" type="text" readonly>
     </div>
+    <!-- 회차 -->
+    <div class="round">
+      <span>회차</span>
+      <input id="inputRound" type="text">
+    </div>
     <!-- 입력한 숫자 -->
     <div class="inputNum">
-      <span>입력한 숫자</span>
-      <input id="inputNum" type="text">
+      <span>숫자 입력</span>
+      <input id="inputNum_1" type="text" maxlength="1">
+      <input id="inputNum_2" type="text" maxlength="1">
+      <input id="inputNum_3" type="text" maxlength="1">
+      <button id="guessBtn" onclick="guessBtn()">숫자 맞추기</button>
     </div>  
   </div>
   
@@ -55,6 +71,8 @@
   <div>
     <textarea id="liveInfo" cols="60" rows="20"></textarea>
   </div>  
+
+
   
   <script src="index2.js"></script>
 </body>
