@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+header {
+  height: 20%;
+}
+
+main {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+#wrapper {
+  height: 100vh;
+}
+
+#calendar {
+  border: 1px solid red;
+
+  width: 100%;
+}
+
+#memo-board {
+  border: 1px solid red;
+
+  width: 100%;
+}
