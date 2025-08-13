@@ -9,32 +9,44 @@
   <body>
     <section id="wrapper">
       <header>
-        <div>회의록 캘린더</div>
+        <h2 class="title">Meetendar</h2>
       </header>
 
       <main>
         <!-- 캘린더 영역 -->
         <section id="calendar">
-          <header>
-            <ul>
-              <li>2025년</li>
-              <li>7월</li>
-            </ul>
-          </header>
-          <main></main>
+          <div class="calendar-header">
+            <button onclick="prevMonth()" id="prev-month">&lt;</button>
+            <div>
+              <span id="year"></span>
+              <span id="month"></span>
+            </div>
+            <button onclick="nextMonth()" id="next-month">&gt;</button>
+          </div>
+
+          <div class="calendar-main">
+            <div class="date-title">
+              <div style="color: red">일</div>
+              <div>월</div>
+              <div>화</div>
+              <div>수</div>
+              <div>목</div>
+              <div>금</div>
+              <div style="color: blue">토</div>
+            </div>
+
+            <div class="date-board"></div>
+          </div>
         </section>
 
         <!-- 게시판 영역  -->
         <section id="memo-board">
-          <header>
+          <div>
             <ul>
               <li>2025년</li>
               <li>7월 20일 (화)</li>
             </ul>
-          </header>
-          <main>
-            
-          </main>
+          </div>
         </section>
       </main>
 
