@@ -111,3 +111,4 @@ dateBoard.addEventListener("click", (e) => {
     <li>${year.innerText}</li>
     <li>${month.innerText} ${cell.innerText}일</li>`;
 });
+
