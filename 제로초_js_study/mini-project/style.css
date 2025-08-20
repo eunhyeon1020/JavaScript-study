@@ -41,8 +41,6 @@ button {
 }
 
 #calendar {
-  border: 1px solid red;
-
   width: 100%;
   padding: 10px;
 }
@@ -73,16 +71,21 @@ button {
   font-size: 20px;
 }
 
-.date-board div {
-  width: 100px;
-  height: 100px;
+.today {
+  width: 20px;
+  border-radius: 20%;
+  background-color: rgb(23, 165, 118);
+  color: white;
+  cursor: pointer;
 }
 
-.today {
-  border: 2px solid #ff9800;
-  background-color: rgba(255, 152, 0, 0.1);
-  border-radius: 8px;
-  font-weight: bold;
+.date {
+  width: 80px;
+  cursor: pointer;
+}
+
+.cell {
+  height: 50px;
 }
 
 #memo-board {

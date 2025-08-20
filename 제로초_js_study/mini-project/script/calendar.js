@@ -6,7 +6,7 @@ const month = document.getElementById("month");
 const dateBoard = document.querySelector(".date-board");
 
 // 오늘 날짜 정보
-const today = new Date();
+const today = new Date(); //실제 오늘을 기준으로 가져오는 것
 const todayY = today.getFullYear();
 const todayM = today.getMonth();
 const todayD = today.getDate();
@@ -47,9 +47,15 @@ const printCalendar = (date) => {
   for (let i = 1; i <= lastDay; i++) {
     // 오늘 날짜 일때 하이라이트 설정
     if (nowY === todayY && nowM === todayM && i === todayD) {
-      dateCell += `<div class="today">${i}</div>`;
+      dateCell += `<div class="dateCell">
+                    <div class="today">${i}</div>
+                    <div class="cell"></div>
+                  </div>`;
     } else {
-      dateCell += `<div>${i}</div>`;
+      dateCell += `<div class="dateCell">
+                    <div class="date">${i}</div>
+                    <div class="cell"></div>
+                  </div>`;
     }
     console.log(i);
   }
@@ -62,7 +68,7 @@ const printCalendar = (date) => {
   dateBoard.innerHTML = dateCell;
 };
 
-// 현재 날짜를 가져오는 date 객체 생성
+// 현재 날짜를 가져오는 date 객체 생성(현재 달력에서 보고 있는 달 / 달력 화면을 이동)
 let date = new Date();
 
 // 현재 달
@@ -81,3 +87,22 @@ function nextMonth() {
   // 다음 달
   printCalendar(new Date(date.setMonth(date.getMonth() + 1)));
 }
+
+// ***************************************************************************//
+// 캘린더 날짜 셀
+const dateCells = document.querySelectorAll(".dateCell");
+
+// 날짜 셀 클릭 시, 클릭한 날짜 요일이 게시판 영역에 도출
+// 1. 모든 셀에 이벤트를 적용하기 위해 반복하여 이벤트 추가
+dateCells.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    console.log("클릭한 날짜:", year.innerText);
+    console.log("클릭한 날짜:", month.innerText);
+    console.log("클릭한 날짜:", cell.innerText);
+
+    // 2. 클릭한 년도와 월을 게시판에 년도와 월 추가하기
+    document.querySelector("#memo-board div ul").innerHTML = `
+    <li class="board-year">${year.innerText}</li>
+    <li class="board-month">${month.innerText} ${cell.innerText}일</li> `;
+  });
+});
