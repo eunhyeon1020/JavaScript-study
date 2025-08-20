@@ -89,20 +89,25 @@ function nextMonth() {
 }
 
 // ***************************************************************************//
-// 캘린더 날짜 셀
-const dateCells = document.querySelectorAll(".dateCell");
+// 기본으로 현재 날짜로 게시판 도출
+function setDefaultBoard() {
+  document.querySelector("#memo-board div ul").innerHTML = `
+    <li>${todayY}년</li>
+    <li>${todayM + 1}월 ${todayD}일</li>`;
+}
+
+setDefaultBoard();
 
 // 날짜 셀 클릭 시, 클릭한 날짜 요일이 게시판 영역에 도출
-// 1. 모든 셀에 이벤트를 적용하기 위해 반복하여 이벤트 추가
-dateCells.forEach((cell) => {
-  cell.addEventListener("click", () => {
-    console.log("클릭한 날짜:", year.innerText);
-    console.log("클릭한 날짜:", month.innerText);
-    console.log("클릭한 날짜:", cell.innerText);
+dateBoard.addEventListener("click", (e) => {
+  // closest(선택자) :: 자기 자신 부터 시작해서 부모 요소를 타고 올라가면서, 선택자에 맞는 가장 가까운 요소 반환
+  // .detecell을 만나면 거기서 멈추고 반환
+  const cell = e.target.closest(".dateCell");
+  // 1. datecell 외 다른 곳을 클릭 했을 때 반환
+  if (!cell) return;
 
-    // 2. 클릭한 년도와 월을 게시판에 년도와 월 추가하기
-    document.querySelector("#memo-board div ul").innerHTML = `
-    <li class="board-year">${year.innerText}</li>
-    <li class="board-month">${month.innerText} ${cell.innerText}일</li> `;
-  });
+  // 2. 게시판 영역에 html 넣기
+  document.querySelector("#memo-board div ul").innerHTML = `
+    <li>${year.innerText}</li>
+    <li>${month.innerText} ${cell.innerText}일</li>`;
 });
