@@ -40,6 +40,7 @@ button {
   font-size: 30px;
 }
 
+/* 캘린더 영역 */
 #calendar {
   width: 100%;
   padding: 10px;
@@ -88,9 +89,31 @@ button {
   height: 50px;
 }
 
+/* 게시판 영역 */
 #memo-board {
-  border: 1px solid red;
-
   width: 100%;
   padding: 10px;
+}
+
+.board-title {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.548);
+}
+
+.plusBtn {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 회의록 모달창 영역 */
+#memo-editor-modal {
+  /* display: none; */
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid red;
 }

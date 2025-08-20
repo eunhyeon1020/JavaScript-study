@@ -13,7 +13,6 @@
       </header>
 
       <main>
-        <!-- 캘린더 영역 -->
         <section id="calendar">
           <div class="calendar-header">
             <button onclick="prevMonth()" id="prev-month">&lt;</button>
@@ -41,18 +40,39 @@
 
         <!-- 게시판 영역  -->
         <section id="memo-board">
-          <div>
+          <div class="board-title">
             <ul></ul>
           </div>
-          <div></div>
+          <div class="board-list"></div>
+          <div onclick="plusBtn()" class="plusBtn">
+            <img src="/img/plusBtn.svg" alt="플러스 버튼" />
+          </div>
+        </section>
+
+        <!-- 회의록 모달창 -->
+        <section id="memo-editor-modal">
+          <div>
+            <ul>
+              <li class="meeting-date"></li>
+              <li class="meeting-topic">
+                <div>회의 주제</div>
+                <input id="topic" type="text" />
+              </li>
+              <li class="meeting-participants">
+                <div>참여자</div>
+                <input id="attendees" type="text" />
+              </li>
+              <li class="meeting-content">
+                <div>회의 내용</div>
+                <textarea id="content"></textarea>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
-
-      <!-- 회의록 모달창 -->
-      <!-- <section id="memo-editor-modal"></section> -->
     </section>
-    <script src="/script/calendar.js"></script>
-    <script src="/script/board.js"></script>
-    <!-- <script src="/script/calendar.js"></script> -->
+    <script src="/script/calendar.js" defer></script>
+    <script src="/script/board.js" defer></script>
+    <script src="/script/memo-editor.js" defer></script>
   </body>
 </html>
