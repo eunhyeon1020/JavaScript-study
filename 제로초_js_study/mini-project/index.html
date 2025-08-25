@@ -12,7 +12,7 @@
         <h2 class="title">Meetendar</h2>
       </header>
 
-      <main>
+      <main id="main">
         <section id="calendar">
           <div class="calendar-header">
             <button onclick="prevMonth()" id="prev-month">&lt;</button>
@@ -52,10 +52,10 @@
         <!-- 회의록 모달창 -->
         <section id="memo-editor-modal">
           <div>
-            <div onclick="closeBtn()" class="closeBtn">
+            <div onclick="hideBtn()" class="closeBtn">
               <div>X</div>
             </div>
-            <ul>
+            <ul class="modal-contain">
               <li class="meeting-date"></li>
               <li class="meeting-topic">
                 <div>회의 주제</div>
@@ -70,10 +70,18 @@
                 <textarea id="content"></textarea>
               </li>
             </ul>
+            <div class="saveBtn-contain">
+              <button type="submit" onclick="saveBtn()" class="saveBtn">
+                저장
+              </button>
+            </div>
           </div>
         </section>
       </main>
     </section>
+    <script>
+      let memoData = JSON.parse(localStorage.getItem("memos")) || {};
+    </script>
     <script src="/script/calendar.js" defer></script>
     <script src="/script/board.js" defer></script>
     <script src="/script/memo-editor.js" defer></script>

@@ -94,6 +94,9 @@ function setDefaultBoard() {
   document.querySelector("#memo-board div ul").innerHTML = `
     <li>${todayY}년</li>
     <li>${todayM + 1}월 ${todayD}일</li>`;
+
+  document.querySelector(".meeting-date").innerHTML = `
+    <div>${todayM + 1}월 ${todayD}일</div>`;
 }
 
 setDefaultBoard();
@@ -110,5 +113,7 @@ dateBoard.addEventListener("click", (e) => {
   document.querySelector("#memo-board div ul").innerHTML = `
     <li>${year.innerText}</li>
     <li>${month.innerText} ${cell.innerText}일</li>`;
-});
 
+  document.querySelector(".meeting-date").innerHTML = `
+    <div>${month.innerText} ${cell.innerText}일</div>`;
+});
