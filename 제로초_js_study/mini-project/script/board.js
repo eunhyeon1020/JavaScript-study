@@ -2,6 +2,9 @@
 const boardList = document.querySelector(".board-list");
 
 function renderBoardList(dateKey) {
+  // 항상 최신 로컬 스토리지 불러오기
+  let memoData = JSON.parse(localStorage.getItem("memos")) || {};
+
   boardList.innerHTML = "";
 
   // memos = 배열
