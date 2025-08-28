@@ -165,6 +165,30 @@ function updateBtn() {
 
 // 삭제 버튼
 function delBtn() {
+  // 클릭 했을 때, 저장해둔 dateKey와 index 갖고오기
+  const dateKey = window.selectedDateKey;
+  const index = window.selectedIndex;
+
+  // 로컬스토리지 불러오기
+  let memoData = loadMemo();
+
+  // 날짜가 존재한다면
+  if (memoData[dateKey]) {
+    // 해당 인덱스 메모 삭제
+    memoData[dateKey].splice(index, 1);
+
+    // 배열이 비면 아예 키 삭제
+    if (memoData[dateKey].length === 0) {
+      delete memoData[dateKey];
+    }
+
+    // localStorage 저장
+    localStorage.setItem("memos", JSON.stringify(memoData));
+
+    // UI 갱신
+    renderBoardList(dateKey);
+  }
+
   // 모달창 닫기
   hideBtn();
 }
