@@ -28,13 +28,13 @@ const printCalendar = (date) => {
   let firstDay = firstDay_info.getDay(); // 5(금요일 기준)
   let lastDay = lastDay_info.getDate(); // 31(8월 기준)
 
-  console.log("현재 달의 첫 번째 날 :: " + firstDay);
-  console.log("현재 달의 마지막 날 :: " + lastDay);
+  // console.log("현재 달의 첫 번째 날 :: " + firstDay);
+  // console.log("현재 달의 마지막 날 :: " + lastDay);
 
   // 3. 현재 달에 필요한 날짜 칸 수 계산하기
   let baseCellCount = firstDay + lastDay; // 첫 번째 날짜 정보 + 마지막 날짜
   let needCell = Math.ceil(baseCellCount / 7) * 7; // 현재 달에 필요한 모든 날짜칸 수(빈칸 + 날짜칸)
-  console.log(needCell);
+  // console.log(needCell);
 
   let dateCell = "";
 
@@ -57,7 +57,7 @@ const printCalendar = (date) => {
                     <div class="cell"></div>
                   </div>`;
     }
-    console.log(i);
+    // console.log(i);
   }
 
   // 마지막 날 후, 빈 날짜일 때 빈 날짜칸 생성
@@ -95,11 +95,17 @@ function setDefaultBoard() {
     <li>${todayY}년</li>
     <li>${todayM + 1}월 ${todayD}일</li>`;
 
-  document.querySelector(".meeting-date").innerHTML = `
-    <div>${todayM + 1}월 ${todayD}일</div>`;
+  document.querySelectorAll(".meeting-date").forEach((el) => {
+    el.innerHTML = `<div>${todayM + 1}월 ${todayD}일</div>`;
+  });
+
+  const dateKey = `${todayY}-${todayM + 1}-${todayD}`;
+  renderBoardList(dateKey);
 }
 
 setDefaultBoard();
+
+const baseDate = document.querySelector(".date");
 
 // 날짜 셀 클릭 시, 클릭한 날짜 요일이 게시판 영역에 도출
 dateBoard.addEventListener("click", (e) => {
@@ -109,11 +115,33 @@ dateBoard.addEventListener("click", (e) => {
   // 1. datecell 외 다른 곳을 클릭 했을 때 반환
   if (!cell) return;
 
+  // 클릭 데이터 데이터 셀에 추가하여 ui 변경
+  // 1. 모든 날짜에서 clickDate 제거
+  document.querySelectorAll(".date, .today").forEach((el) => {
+    el.classList.remove("clickDate");
+  });
+  // 2. 방금 클릭한 날짜에만 clickDate 추가
+  const clickedDate = cell.querySelector(".date, .today");
+  clickedDate.classList.add("clickDate");
+
+  const dateNum = cell.querySelector(".date, .today").innerText;
+  const yearNum = year.innerText.replace("년", "").trim();
+  const monthNum = month.innerText.replace("월", "").trim();
+  const dateKey = `${yearNum}-${monthNum}-${dateNum}`;
+
   // 2. 게시판 영역에 html 넣기
   document.querySelector("#memo-board div ul").innerHTML = `
-    <li>${year.innerText}</li>
-    <li>${month.innerText} ${cell.innerText}일</li>`;
+    <li>${yearNum}년</li>
+    <li>${monthNum}월 ${dateNum}일</li>`;
 
-  document.querySelector(".meeting-date").innerHTML = `
-    <div>${month.innerText} ${cell.innerText}일</div>`;
+  // 3. 회의록 모달에도 동일하게 날짜 삽입
+  document.querySelectorAll(".meeting-date").forEach((el) => {
+    el.innerHTML = `<div>${monthNum}월 ${dateNum}일</div>`;
+  });
+
+  // 4. 로컬 스토리지에서 최신 데이터 불러오기
+  memoData = JSON.parse(localStorage.getItem("memos")) || {};
+
+  // 5. 해당 날짜 회의록 렌더링
+  renderBoardList(dateKey);
 });
