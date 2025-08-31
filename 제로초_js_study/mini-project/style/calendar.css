@@ -1,0 +1,68 @@
+/* 캘린더 영역 */
+#calendar {
+  width: 100%;
+  padding: 3rem 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.calendar-header div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#year,
+#month {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.date-title,
+.date-board {
+  display: grid;
+  /* justify-items: center; */
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+}
+
+.date-title {
+  padding: 30px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.today {
+  width: 18px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 18px;
+  background-color: rgb(23, 165, 118);
+  color: white;
+  cursor: pointer;
+}
+
+.clickDate {
+  /* position: absolute; */
+  width: 18px !important;
+  border-radius: 18px;
+  border: 1px solid rgb(23, 165, 118);
+}
+
+.date {
+  width: 80px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cell {
+  height: 50px;
+}
+
+.highlight::after {
+  content: "⭐";
+}

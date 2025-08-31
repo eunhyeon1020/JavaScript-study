@@ -1,0 +1,112 @@
+.modal-background {
+  position: fixed;
+  width: calc(100vw - 160px);
+  background: rgb(87 87 87 / 31%);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+}
+
+#baseMemo-modal,
+#memo-view-modal,
+#memo-editor-modal {
+  display: none;
+  width: 300px;
+  height: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 20px;
+  z-index: 100;
+
+  background-color: white;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+#baseMemo-modal > div,
+#memo-view-modal > div,
+#memo-editor-modal > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeBtn div {
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.meeting-date {
+  font-size: 18px;
+  color: black;
+}
+
+.modal-contain li {
+  padding-bottom: 5px;
+}
+
+.modal-contain li div {
+  padding-bottom: 5px;
+}
+
+.btn-contain {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.saveBtn,
+.changeBtn,
+.delBtn,
+.updateBtn {
+  padding: 8px 8px;
+  font-size: 15px;
+  color: white;
+  background-color: #c2c2c2;
+  border-radius: 10px;
+  font-family: "SchoolSafetyRoundedSmile", sans-serif;
+  font-weight: 600;
+}
+
+.saveBtn:hover,
+.updateBtn:hover {
+  color: rgb(27, 188, 134);
+  background-color: rgb(198, 218, 211);
+}
+
+.changeBtn:hover {
+  color: rgb(0, 143, 214);
+  background-color: rgb(176, 201, 214);
+}
+
+.delBtn:hover {
+  color: red;
+  background-color: rgb(230, 186, 186);
+}
+
+#view-topic,
+#view-attendees,
+#view-content {
+  outline: none;
+}

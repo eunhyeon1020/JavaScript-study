@@ -1,0 +1,67 @@
+@import url(board.css);
+@import url(calendar.css);
+@import url(memo-ediot.css);
+
+@font-face {
+  font-family: "SchoolSafetyRoundedSmile";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-R.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "SchoolSafetyRoundedSmile", sans-serif;
+  box-sizing: border-box;
+  color: rgb(47, 47, 47);
+  user-select: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  height: calc(100vh - 108px);
+  display: flex;
+  gap: 3rem;
+  padding: 0 5rem;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid rgb(156, 156, 156);
+  border-radius: 3px;
+}
+
+textarea {
+  height: 120px;
+}
+
+#wrapper {
+  height: 100vh;
+}
+
+.title {
+  height: 100%;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
