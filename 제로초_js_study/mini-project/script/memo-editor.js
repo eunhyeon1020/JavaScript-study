@@ -6,6 +6,7 @@ const editorModal = document.getElementById("memo-editor-modal");
 function plusBtn() {
   baseModal.style.display = "block";
   main.classList.add("modal-background");
+  document.getElementById("modal-overlay").style.display = "block";
 }
 
 function hideBtn() {
@@ -14,6 +15,7 @@ function hideBtn() {
   editorModal.style.display = "none";
   main.classList.remove("modal-background");
   main.classList.remove("basemodal-background");
+  document.getElementById("modal-overlay").style.display = "none";
 }
 
 // 회의록 주제, 참여자, 회의 내용 데이터
@@ -41,11 +43,6 @@ function getDateKey() {
     .replace(" ", "-") // 8-27일
     .replace("일", ""); // 8-27
   return `${yearText}-${monthDay}`;
-}
-
-// 로컬 스토리지 불러오는 함수
-function loadMemo() {
-  return JSON.parse(localStorage.getItem("memos")) || {};
 }
 
 // 인덱스 뽑는 함수

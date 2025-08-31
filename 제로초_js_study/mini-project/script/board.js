@@ -3,12 +3,13 @@ const boardList = document.querySelector(".board-list");
 
 function renderBoardList(dateKey) {
   // 항상 최신 로컬 스토리지 불러오기
-  let memoData = JSON.parse(localStorage.getItem("memos")) || {};
+  const memoData = loadMemo();
 
   boardList.innerHTML = "";
 
   // memos = 배열
   const memos = memoData[dateKey] || [];
+
   // forEach(각 회의록 객체, 인덱스 번호)
   memos.forEach((m, i) => {
     const item = document.createElement("div");

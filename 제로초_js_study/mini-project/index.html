@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <title>회의록 캘린더</title>
   </head>
   <body>
     <section id="wrapper">
       <header>
-        <h2 class="title">Meetendar</h2>
+        <h2 class="title">📆Meetendar</h2>
       </header>
 
       <main id="main">
@@ -43,11 +43,13 @@
           <div class="board-title">
             <ul></ul>
           </div>
-          <div class="board-list"></div>
+          <div class="board-list" data-date=""></div>
           <div onclick="plusBtn()" class="plusBtn">
             <img src="/img/plusBtn.svg" alt="플러스 버튼" />
           </div>
         </section>
+
+        <div id="modal-overlay" class="modal-overlay"></div>
 
         <!-- 처음 회의록 모달창 -->
         <section id="baseMemo-modal">
@@ -134,6 +136,10 @@
       </main>
     </section>
     <script>
+      function loadMemo() {
+        return JSON.parse(localStorage.getItem("memos")) || {};
+      }
+
       // 전역으로 memos라는 키를 찾아 불러옴
       let memoData = JSON.parse(localStorage.getItem("memos")) || {};
     </script>
