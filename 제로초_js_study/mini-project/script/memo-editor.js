@@ -55,6 +55,9 @@ function getMemoIndex(memoItem) {
 function saveBtn() {
   const dateKey = getDateKey();
 
+  // 최신 데이터 불러오기
+  let memoData = loadMemo();
+
   // value값으로 저장한 데이터 만들기
   const newMemo = {
     topic: topic.value,
